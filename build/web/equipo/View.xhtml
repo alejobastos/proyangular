@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="EquipoViewDlg" widgetVar="EquipoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewEquipoTitle}">
+            <h:form id="EquipoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{equipoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewEquipoLabel_equipoid}"/>
+                        <h:outputText value="#{equipoController.selected.equipoid}" title="#{bundle.ViewEquipoTitle_equipoid}"/>
+                        <h:outputText value="#{bundle.ViewEquipoLabel_nombre}"/>
+                        <h:outputText value="#{equipoController.selected.nombre}" title="#{bundle.ViewEquipoTitle_nombre}"/>
+                        <h:outputText value="#{bundle.ViewEquipoLabel_ciudad}"/>
+                        <h:outputText value="#{equipoController.selected.ciudad}" title="#{bundle.ViewEquipoTitle_ciudad}"/>
+                        <h:outputText value="#{bundle.ViewEquipoLabel_categoria}"/>
+                        <h:outputText value="#{equipoController.selected.categoria}" title="#{bundle.ViewEquipoTitle_categoria}"/>
+                        <h:outputText value="#{bundle.ViewEquipoLabel_fundado}"/>
+                        <h:outputText value="#{equipoController.selected.fundado}" title="#{bundle.ViewEquipoTitle_fundado}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="EquipoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

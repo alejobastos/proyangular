@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PartidoViewDlg" widgetVar="PartidoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewPartidoTitle}">
+            <h:form id="PartidoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{partidoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewPartidoLabel_partidoid}"/>
+                        <h:outputText value="#{partidoController.selected.partidoid}" title="#{bundle.ViewPartidoTitle_partidoid}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_estadio}"/>
+                        <h:outputText value="#{partidoController.selected.estadio}" title="#{bundle.ViewPartidoTitle_estadio}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_fecha}"/>
+                        <h:outputText value="#{partidoController.selected.fecha}" title="#{bundle.ViewPartidoTitle_fecha}"/>
+                        <h:outputText value="#{bundle.ViewPartidoLabel_hora}"/>
+                        <h:outputText value="#{partidoController.selected.hora}" title="#{bundle.ViewPartidoTitle_hora}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="PartidoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
